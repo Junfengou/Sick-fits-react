@@ -1,0 +1,11 @@
+endpoint: ${env:PRISMA_ENDPOINT}
+datamodel: datamodel.prisma
+
+# Good for development but never go public with this not commented out
+# secret: ${env:PRISMA_SECRET}
+
+#What is the meaning of life
+
+hooks:
+  post-deploy:
+    - graphql get-schema -p prisma
