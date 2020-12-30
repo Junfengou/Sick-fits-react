@@ -1,10 +1,10 @@
 endpoint: ${env:PRISMA_ENDPOINT}
 datamodel: datamodel.prisma
 
-# Good for development but never go public with this not commented out
-# secret: ${env:PRISMA_SECRET}
+# Good for development but never go public with this not commented
 
-#What is the meaning of life
+#this line below will lock down the database to the public
+# secret: ${env:PRISMA_SECRET}
 
 hooks:
   post-deploy:

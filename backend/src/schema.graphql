@@ -1,5 +1,8 @@
 # import * from './generated/prisma.graphql'
+
+# Anything you want to be visible in Graphiql will live in here
 type Mutation {
+	#The name of the mutation must match the one in resolver/mutation file
 	createItem(
 		title: String
 		description: String

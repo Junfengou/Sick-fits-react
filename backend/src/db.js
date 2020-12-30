@@ -10,7 +10,7 @@ const { Prisma } = require("prisma-binding");
 
 const db = new Prisma({
 	typeDefs: "src/generated/prisma.graphql", //feed in the type
-	endpoint: process.env.PRISMA_ENDPOINT, //access to the endpoint
+	endpoint: process.env.PRISMA_ENDPOINT, //Prisma database endpoint
 	secret: process.env.PRISMA_SECRET,
 	debug: false,
 });
