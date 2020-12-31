@@ -10,8 +10,26 @@ type Mutation {
 		image: String
 		largeImage: String
 	): Item!
+
+	updateItem(id: ID!, title: String, description: String, price: Int): Item!
+
+	deleteItem(id: ID!): Item
 }
 
 type Query {
-	items: [Item]!
+	# grab list of all items
+	# items: [Item]!
+	items(
+		where: ItemWhereInput
+		orderBy: ItemOrderByInput
+		skip: Int
+		first: Int
+	): [Item]!
+
+	# grab a single item
+	# [ItemWhereUniqueInput] can be found inside the /generated/prisma.graphql
+	item(where: ItemWhereUniqueInput!): Item
+
+	# use for pagination
+	itemsConnection(where: ItemWhereInput): ItemConnection!
 }

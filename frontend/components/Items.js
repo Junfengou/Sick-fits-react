@@ -3,10 +3,12 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import styled from "styled-components";
 import Item from "./Item";
+import Pagination from "./Pagination";
+import { perPage } from "../config";
 
 const All_ITEMS_QUERY = gql`
-	query All_ITEMS_QUERY {
-		items {
+	query All_ITEMS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
+		items(first: $first, skip: $skip, orderBy: createAt_DESC) {
 			id
 			title
 			price
@@ -21,7 +23,17 @@ export class Items extends Component {
 	render() {
 		return (
 			<Center>
-				<Query query={All_ITEMS_QUERY}>
+				<Pagination page={this.props.page} />
+				<Query
+					query={All_ITEMS_QUERY}
+					//When a new item is added or deleted, the cache in each pagination is out of date unless the user manually refresh the page
+					//one way to handle this issue is to use [fetchPolicy="network-only"] (IT'S NOT THE BEST WAY OF SOLVING IT BUT THERE'S NO OTHER CHOICE HMM...)
+					fetchPolicy="network-only"
+					variables={{
+						//if it's on page two, we want to skip 2 * 4 - 4 = 4 items
+						skip: this.props.page * perPage - perPage,
+					}}
+				>
 					{/**(payload) => {} */}
 					{({ data, error, loading }) => {
 						console.log(data);
@@ -36,6 +48,7 @@ export class Items extends Component {
 						);
 					}}
 				</Query>
+				<Pagination page={this.props.page} />
 			</Center>
 		);
 	}

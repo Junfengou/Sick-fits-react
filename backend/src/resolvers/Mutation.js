@@ -26,13 +26,40 @@ const Mutations = {
 
 		return item;
 	},
-	// createDog(parent, args, ctx, info) {
-	//   global.dogs = global.dogs || [];
-	//   // create a dog
-	//   const newDog = { name: args.name };
-	//   global.dogs.push(newDog);
-	//   return newDog;
-	// },
+
+	async updateItem(parent, args, ctx, info) {
+		//first take a copy of the updates
+		const updates = { ...args };
+
+		//removes the ID from the update because you don't wanna change the id of the item
+		delete updates.id;
+
+		//run the update method
+		//we should await this too right?
+		return await ctx.db.mutation.updateItem(
+			{
+				data: updates,
+				where: {
+					id: args.id,
+				},
+			},
+			info
+		);
+	},
+
+	async deleteItem(parent, args, ctx, info) {
+		const where = { id: args.id };
+
+		// 1. find the item
+		//[`{ id title }`] is passing in raw graphql
+		const item = await ctx.db.query.item({ where }, `{ id title }`);
+
+		// 2. check if they own that item, or have the permission
+		//TODO
+
+		// 3. delete it
+		return ctx.db.mutation.deleteItem({ where }, info);
+	},
 };
 
 module.exports = Mutations;
