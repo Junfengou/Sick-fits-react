@@ -14,7 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "D:\\React\\Advanced-React\\sick-fits\\frontend\\components\\ErrorMessage.js";
+var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\ErrorMessage.js";
 
 
 
@@ -105,7 +105,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/head */ "./node_modules/next/head.js");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_5__);
-var _jsxFileName = "D:\\React\\Advanced-React\\sick-fits\\frontend\\components\\SingleItem.js";
+var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\SingleItem.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -25015,7 +25015,7 @@ __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_SingleItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/SingleItem */ "./components/SingleItem.js");
-var _jsxFileName = "D:\\React\\Advanced-React\\sick-fits\\frontend\\pages\\item.js";
+var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\pages\\item.js";
 
 
 
@@ -25060,7 +25060,7 @@ function Item(_ref) {
 
 /***/ }),
 
-/***/ 6:
+/***/ 5:
 /*!*****************************!*\
   !*** multi ./pages/item.js ***!
   \*****************************/
@@ -25085,5 +25085,5 @@ module.exports = dll_18682c416555df0bf0b9;
 
 /***/ })
 
-},[[6,"static/runtime/webpack.js"]]]));;
+},[[5,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=item.js.map

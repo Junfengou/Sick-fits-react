@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/junfeng-ou/sick-fitz/dev
-# timestamp: Thu Oct 01 2020 12:39:54 GMT-0500 (Central Daylight Time)
+# timestamp: Thu Dec 31 2020 14:32:42 GMT-0600 (Central Standard Time)
 
 type AggregateItem {
   count: Int!
@@ -20,11 +20,11 @@ type Item implements Node {
   id: ID!
   title: String!
   description: String!
-  image: String!
-  largeImage: String!
+  image: String
+  largeImage: String
   price: Int!
   createAt: DateTime
-  updateAt: DateTime
+  updateAt: DateTime!
 }
 
 """A connection to a list of items."""
@@ -41,11 +41,10 @@ input ItemCreateInput {
   id: ID
   title: String!
   description: String!
-  image: String!
-  largeImage: String!
+  image: String
+  largeImage: String
   price: Int!
   createAt: DateTime
-  updateAt: DateTime
 }
 
 """An edge in a connection."""
@@ -80,11 +79,11 @@ type ItemPreviousValues {
   id: ID!
   title: String!
   description: String!
-  image: String!
-  largeImage: String!
+  image: String
+  largeImage: String
   price: Int!
   createAt: DateTime
-  updateAt: DateTime
+  updateAt: DateTime!
 }
 
 type ItemSubscriptionPayload {
@@ -133,7 +132,6 @@ input ItemUpdateInput {
   largeImage: String
   price: Int
   createAt: DateTime
-  updateAt: DateTime
 }
 
 input ItemUpdateManyMutationInput {
@@ -143,7 +141,6 @@ input ItemUpdateManyMutationInput {
   largeImage: String
   price: Int
   createAt: DateTime
-  updateAt: DateTime
 }
 
 input ItemWhereInput {
