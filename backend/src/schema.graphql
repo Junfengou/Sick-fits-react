@@ -1,5 +1,9 @@
 # import * from './generated/prisma.graphql'
 
+type SuccessMessage {
+	message: String
+}
+
 # Anything you want to be visible in Graphiql will live in here
 type Mutation {
 	#The name of the mutation must match the one in resolver/mutation file
@@ -16,6 +20,9 @@ type Mutation {
 	deleteItem(id: ID!): Item
 
 	signup(email: String!, password: String!, name: String!): User!
+	signin(email: String!, password: String!): User!
+	# [SuccessMessage] is a custom type that only return a message, it will not affect anything that's currently saved in the database
+	signout: SuccessMessage
 }
 
 type Query {

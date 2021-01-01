@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import SignupPage from "../components/Signup";
+import SigninPage from "../components/Signin";
 
 function signup(props) {
 	return (
 		<Columns>
 			<SignupPage />
-			<SignupPage />
+			<SigninPage />
 			<SignupPage />
 		</Columns>
 	);
