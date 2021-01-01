@@ -11,6 +11,9 @@ const { transport, makeANiceEmail } = require("../mail");
 const Mutations = {
 	async createItem(parent, args, ctx, info) {
 		// TODO: Check if they are logged in
+		if (!ctx.request.userId) {
+			throw new Error("You must be logged in to do that");
+		}
 
 		// Here is where we interface with the prisma database
 		//The database is living in the /generated/prisma.graphql
@@ -20,9 +23,16 @@ const Mutations = {
 				*/
 
 		//[ctx.db.mutation.createItem] returns a promise
+		//[...args] is essentially spreading all the incoming fields like image, title, price, description into the data
 		const item = await ctx.db.mutation.createItem(
 			{
 				data: {
+					// this is how we create a relationship between item and user
+					user: {
+						connect: {
+							id: ctx.request.userId,
+						},
+					},
 					...args,
 				},
 			},
