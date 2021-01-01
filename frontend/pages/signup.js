@@ -2,13 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import SignupPage from "../components/Signup";
 import SigninPage from "../components/Signin";
+import RequestReset from "../components/RequestReset";
 
 function signup(props) {
 	return (
 		<Columns>
 			<SignupPage />
 			<SigninPage />
-			<SignupPage />
+			<RequestReset />
 		</Columns>
 	);
 }
