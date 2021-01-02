@@ -19,7 +19,7 @@ server.express.use(cookieParser());
 // Middleware: decode the JWT so we can get user id on each request
 server.express.use((req, res, next) => {
 	const { token } = req.cookies;
-	console.log("token: ", token);
+	// console.log("token: ", token);
 
 	// decode the token
 	if (token) {
@@ -30,7 +30,23 @@ server.express.use((req, res, next) => {
 	next();
 });
 
-// TODO Use express middlware to populate current user
+// TODO Use express middlware to populate user on each request (THIS IS FOR PERMISSION CHECK)
+server.express.use(async (req, res, next) => {
+	// if they aren't logged in, skip this
+	if (!req.userId) return next();
+
+	// ['{id, permission, email, name}'] is being passed in as graphql query
+	try {
+		const user = await db.query.user(
+			{ where: { id: req.userId } },
+			"{id, permissions, email, name}"
+		);
+		req.user = user;
+		next();
+	} catch (err) {
+		next(err);
+	}
+});
 
 server.start(
 	{

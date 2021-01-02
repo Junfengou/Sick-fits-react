@@ -30,6 +30,8 @@ type Mutation {
 		password: String!
 		confirmPassword: String!
 	): User!
+
+	updatePermission(permissions: [Permission], userId: ID!): User
 }
 
 type Query {
@@ -51,6 +53,9 @@ type Query {
 
 	# query the current user
 	me: User
+
+	# list of users
+	users: [User]!
 }
 
 # This type is necessary because it defines what information is accessible in the frontend

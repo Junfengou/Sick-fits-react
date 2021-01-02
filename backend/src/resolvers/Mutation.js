@@ -7,6 +7,7 @@ const { randomBytes } = require("crypto");
 const { promisify } = require("util"); // take callback base function and turn them into promise base
 
 const { transport, makeANiceEmail } = require("../mail");
+const { hasPermission } = require("../utils");
 
 const Mutations = {
 	async createItem(parent, args, ctx, info) {
@@ -68,14 +69,25 @@ const Mutations = {
 	},
 
 	async deleteItem(parent, args, ctx, info) {
+		// throw new Error("You aren't allow to do that!");
 		const where = { id: args.id };
 
 		// 1. find the item
 		//[`{ id title }`] is passing in raw graphql
-		const item = await ctx.db.query.item({ where }, `{ id title }`);
+		const item = await ctx.db.query.item({ where }, `{ id title user {id}}`);
 
 		// 2. check if they own that item, or have the permission
 		//TODO
+		const ownsItem = item.user.id === ctx.request.userId;
+
+		//loop through every single permission and check if [some(means atleast one match)]
+		const hasPermissions = ctx.request.user.permissions.some((permission) =>
+			["ADMIN", "ITEMDELETE"].includes(permission)
+		);
+
+		if (!ownsItem && !hasPermissions) {
+			throw new Error("You don't have permission to delete such item");
+		}
 
 		// 3. delete it
 		return ctx.db.mutation.deleteItem({ where }, info);
@@ -167,6 +179,7 @@ const Mutations = {
 		// VERY IMPORTANT
 		//<a href="${process.env.FRONTEND_URL}/reset?resetToken=${resetToken}">Click here to reset</a>
 		//[${process.env.FRONTEND_URL}] NEED TO BE SWAP OUT FOR PRODUCTION
+
 		const mailResponse = await transport.sendMail({
 			from: "junfengou@gmail.com",
 			to: user.email,
@@ -222,6 +235,38 @@ const Mutations = {
 
 		// 8. return the new user
 		return updatedUser;
+	},
+
+	async updatePermission(parent, args, ctx, info) {
+		// 1. check if the user is logged in
+		if (!ctx.request.userId) {
+			throw new Error("You must be logged in!");
+		}
+
+		// 2. query the current user
+		const currentUser = await ctx.db.query.user(
+			{ where: { id: ctx.request.userId } },
+			info
+		);
+
+		// 3. check if they have permission to do this
+		hasPermission(currentUser, ["ADMIN", "PERMISSIONUPDATE"]);
+
+		// 4. update the permission
+		return ctx.db.mutation.updateUser(
+			{
+				data: {
+					//since permissions is a enum, it needs to be done like this
+					permissions: {
+						set: args.permissions,
+					},
+				},
+				where: {
+					id: args.userId,
+				},
+			},
+			info
+		);
 	},
 };
 

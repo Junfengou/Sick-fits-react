@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -209,7 +209,10 @@ function (_Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: function onClick() {
             if (confirm("Are you sure you want to delete this?")) {
-              deleteItem();
+              //Since deleteItem() returns promise, you can directly catch the error
+              deleteItem().catch(function (err) {
+                alert(err.message);
+              });
             }
           },
           __source: {
@@ -895,7 +898,7 @@ function Home(props) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 6:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

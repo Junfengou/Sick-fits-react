@@ -8,38 +8,40 @@ function Nav() {
 	return (
 		<User>
 			{/** [{ data: { me } }] this is two level destructuring data, it can go even deeper */}
-			{({ data: { me } }) => (
-				<NavStyle>
-					<Link href="/items">
-						<a>Shop</a>
-					</Link>
+			{({ data: { me } }) => {
+				return (
+					<NavStyle>
+						<Link href="/items">
+							<a>Shop</a>
+						</Link>
 
-					{/**
-					 * To display multiple elements, you'll need either div or fragment
-					 */}
+						{/**
+						 * To display multiple elements, you'll need either div or fragment
+						 */}
 
-					{me ? (
-						<>
-							<Link href="/sell">
-								<a>Sell</a>
-							</Link>
-							<Link href="/orders">
-								<a>Orders</a>
-							</Link>
-							<Link href="/me">
-								<a>Account</a>
-							</Link>
-							<Signout />
-						</>
-					) : (
-						<>
-							<Link href="/signup">
-								<a>Sign In</a>
-							</Link>
-						</>
-					)}
-				</NavStyle>
-			)}
+						{me ? (
+							<>
+								<Link href="/sell">
+									<a>Sell</a>
+								</Link>
+								<Link href="/orders">
+									<a>Orders</a>
+								</Link>
+								<Link href="/me">
+									<a>Account</a>
+								</Link>
+								<Signout />
+							</>
+						) : (
+							<>
+								<Link href="/signup">
+									<a>Sign In</a>
+								</Link>
+							</>
+						)}
+					</NavStyle>
+				);
+			}}
 		</User>
 	);
 }
