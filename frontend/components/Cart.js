@@ -10,6 +10,9 @@ import CartItem from "./CartItem";
 import CalcTotalPrice from "../lib/calcTotalPrice";
 import formatMoney from "../lib/formatMoney";
 
+// This name import is to deal with all the nested query/mutation and make them little easier to read
+import { adopt } from "react-adopt";
+
 // This query is STRICTLY client side only
 // By doing this [cartOpen @client], React will know not to go to the backend to query this piece of data.
 
@@ -26,52 +29,50 @@ const TOGGLE_CART_MUTATION = gql`
 	}
 `;
 
+// Both solution work just fine. The one that's not rendering children will throw an error in the console but it shouldn't really affect anything
+const Composed = adopt({
+	user: ({ render }) => <User>{render}</User>,
+	toggleCart: ({ render }) => (
+		<Mutation mutation={TOGGLE_CART_MUTATION}>{render}</Mutation>
+	),
+	localState: <Query query={LOCAL_STATE_QUERY} />,
+});
+
 function Cart() {
 	return (
 		// the props[open={true}] means the cart will appear.
 		// This prop is passed into the CartStyle component, so refer to that for styling if you get confused
-		<User>
-			{({ data: { me } }) => {
+		<Composed>
+			{({ user, toggleCart, localState }) => {
+				const me = user.data.me;
 				if (!me) return null;
-				console.log("Me from cart: ", me);
 				return (
-					<Mutation mutation={TOGGLE_CART_MUTATION}>
-						{(toggleCart) => (
-							<Query query={LOCAL_STATE_QUERY}>
-								{({ data: { cartOpen } }) => {
-									console.log("client side local data: ", cartOpen);
-									return (
-										<CartStyle open={cartOpen}>
-											<header>
-												<CloseButton title="close" onClick={toggleCart}>
-													&times;
-												</CloseButton>
-												<Supreme>{me.name}'s cart</Supreme>
-												<p>
-													You have {me.cart.length} item
-													{me.cart.length === 1 ? "" : "s"} in your cart
-												</p>
-											</header>
+					<CartStyle open={localState.data.cartOpen}>
+						<header>
+							<CloseButton title="close" onClick={toggleCart}>
+								&times;
+							</CloseButton>
+							<Supreme>{me.name}'s cart</Supreme>
+							<p>
+								You have {me.cart.length} item
+								{me.cart.length === 1 ? "" : "s"} in your cart
+							</p>
+						</header>
 
-											<ul>
-												{me.cart.map((cartItem) => (
-													<CartItem key={cartItem.id} cartItem={cartItem} />
-												))}
-											</ul>
+						<ul>
+							{me.cart.map((cartItem) => (
+								<CartItem key={cartItem.id} cartItem={cartItem} />
+							))}
+						</ul>
 
-											<footer>
-												<p>{formatMoney(CalcTotalPrice(me.cart))}</p>
-												<SickButton>Checkout</SickButton>
-											</footer>
-										</CartStyle>
-									);
-								}}
-							</Query>
-						)}
-					</Mutation>
+						<footer>
+							<p>{formatMoney(CalcTotalPrice(me.cart))}</p>
+							<SickButton>Checkout</SickButton>
+						</footer>
+					</CartStyle>
 				);
 			}}
-		</User>
+		</Composed>
 	);
 }
 

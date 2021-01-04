@@ -5,6 +5,7 @@ import styled from "styled-components";
 import NProgress from "nprogress";
 import Router from "next/router";
 import Cart from "./Cart";
+import Search from "./Search";
 
 //just the red loading bar thing
 Router.onRouteChangeStart = () => {
@@ -29,7 +30,7 @@ function Header() {
 				<Nav />
 			</div>
 			<div className="sub-bar">
-				<p>Search</p>
+				<Search />
 			</div>
 			<Cart />
 		</StyledHeader>
