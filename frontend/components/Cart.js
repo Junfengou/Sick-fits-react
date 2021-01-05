@@ -10,6 +10,8 @@ import CartItem from "./CartItem";
 import CalcTotalPrice from "../lib/calcTotalPrice";
 import formatMoney from "../lib/formatMoney";
 
+import TakeMyMoney from "./TakeMyMoney";
+
 // This name import is to deal with all the nested query/mutation and make them little easier to read
 import { adopt } from "react-adopt";
 
@@ -67,7 +69,9 @@ function Cart() {
 
 						<footer>
 							<p>{formatMoney(CalcTotalPrice(me.cart))}</p>
-							<SickButton>Checkout</SickButton>
+							<TakeMyMoney>
+								<SickButton>Checkout</SickButton>
+							</TakeMyMoney>
 						</footer>
 					</CartStyle>
 				);
