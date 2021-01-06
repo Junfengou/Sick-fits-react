@@ -67,3 +67,4 @@ const SingleItemStyles = styled.div`
 `;
 
 export default SingleItem;
+export { SINGLE_ITEM_QUERY };

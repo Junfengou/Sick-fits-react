@@ -26,7 +26,8 @@ function Pagination(props) {
 				const pages = Math.ceil(count / perPage);
 				const page = props.page;
 				return (
-					<PaginationStyles>
+					//data-test is for snapshot testing only! This component get data-test because it doesn't have nested query or mutation
+					<PaginationStyles data-test="pagination">
 						<Head>
 							<title>
 								Sick Fits - Page {page} of {pages}
@@ -44,7 +45,7 @@ function Pagination(props) {
 							</a>
 						</Link>
 						<p>
-							Page {props.page} of {pages}{" "}
+							Page {props.page} of <span className="totalPages">{pages}</span>
 						</p>
 						<p>{count} Item total</p>
 
@@ -55,7 +56,7 @@ function Pagination(props) {
 								query: { page: page + 1 },
 							}}
 						>
-							<a className="prev" aria-disabled={page >= pages}>
+							<a className="next" aria-disabled={page >= pages}>
 								Next page
 							</a>
 						</Link>
@@ -67,3 +68,4 @@ function Pagination(props) {
 }
 
 export default Pagination;
+export { PAGINATION_QUERY };

@@ -338,6 +338,48 @@ const Mutations = {
 		);
 		// REMEMBER: The info is the query coming from the client side
 	},
+
+	async createOrder(parent, args, ctx, info) {
+		// 1. query the current user and make sure they're signed in
+		const { userId } = ctx.request;
+		if (!userId) {
+			throw new Error("You must be signed in to complete this order");
+		}
+
+		const user = await ctx.db.query.user(
+			{ where: { id: userId } },
+			`{
+			id
+			name
+			email
+			cart {
+			  id
+			  quantity
+			  item { 
+				  title 
+				  price 
+				  id 
+				  description 
+				  image 
+				}
+			}}`
+		);
+		// 2. recalculate the total for the price (VERY IMPORTANT: price must be recalculated on the backend, otherwise user can manipulate the price on client side js )
+		const amount = user.cart.reduce(
+			(tally, cartItem) => tally + cartItem.item.price * cartItem.quantity,
+			0
+		);
+		console.log(`Going to charge for a total of ${amount}`);
+		// 3. create the stripe charge
+
+		// 4. convert the CartItems to OrderItems
+
+		// 5. create the order
+
+		// 6. clean up the user cart and delete cart item
+
+		// 7. return the order to the client
+	},
 };
 
 module.exports = Mutations;

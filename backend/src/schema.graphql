@@ -37,6 +37,9 @@ type Mutation {
 	addToCart(id: ID!): CartItem
 
 	removeFromCart(id: ID!): CartItem
+
+	# order
+	createOrder(token: String!): Order!
 }
 
 type Query {

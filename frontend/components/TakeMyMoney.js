@@ -13,9 +13,32 @@ function totalItem(cart) {
 	return cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0);
 }
 
+const CREATE_ORDER_MUTATION = gql`
+	mutation createOrder($token: String!) {
+		createOrder(token: $token) {
+			id
+			charge
+			total
+			items {
+				id
+				title
+			}
+		}
+	}
+`;
+
 export class TakeMyMoney extends Component {
-	onToken = (res) => {
-		console.log("On token called: ", res);
+	onToken = (res, createOrder) => {
+		console.log("On Token Called!");
+		console.log(res.id);
+		// manually call the mutation once we have the stripe token
+		createOrder({
+			variables: {
+				token: res.id,
+			},
+		}).catch((err) => {
+			alert(err.message);
+		});
 	};
 
 	render() {
@@ -23,18 +46,25 @@ export class TakeMyMoney extends Component {
 			<div>
 				<User>
 					{({ data: { me } }) => (
-						<StripeCheckout
-							amount={calcTotalPrice(me.cart)}
-							name="Sick Fits"
-							description={`Order of ${totalItem(me.cart)} items!`}
-							image={me.cart[0].item && me.cart[0].item.image}
-							stripeKey="pk_test_51I5w86L6WESAJmN2ZO48bwEU8u16s8npi8Gii4KYBLPEQkpZdVlDjr6YHSJrEfTaQotgKs27tBxJQhWvRrixuLNp00q8G6TZ3S"
-							currency="USD"
-							email={me.email}
-							token={(res) => this.onToken(res)}
+						<Mutation
+							mutation={CREATE_ORDER_MUTATION}
+							refetchQueries={[{ query: CURRENT_USER_QUERY }]}
 						>
-							{this.props.children}
-						</StripeCheckout>
+							{(createOrder) => (
+								<StripeCheckout
+									amount={calcTotalPrice(me.cart)}
+									name="Sick Fits"
+									description={`Order of ${totalItem(me.cart)} items!`}
+									image={me.cart[0].item && me.cart[0].item.image}
+									stripeKey="pk_test_51I5w86L6WESAJmN2ZO48bwEU8u16s8npi8Gii4KYBLPEQkpZdVlDjr6YHSJrEfTaQotgKs27tBxJQhWvRrixuLNp00q8G6TZ3S"
+									currency="USD"
+									email={me.email}
+									token={(res) => this.onToken(res, createOrder)}
+								>
+									{this.props.children}
+								</StripeCheckout>
+							)}
+						</Mutation>
 					)}
 				</User>
 			</div>

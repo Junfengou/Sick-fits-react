@@ -14,7 +14,7 @@ function Nav() {
 			{({ data: { me } }) => {
 				console.log("me: ", me);
 				return (
-					<NavStyle>
+					<NavStyle data-test="nav">
 						<Link href="/items">
 							<a>Shop</a>
 						</Link>
