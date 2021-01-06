@@ -118,10 +118,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CartItem__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./CartItem */ "./components/CartItem.js");
 /* harmony import */ var _lib_calcTotalPrice__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../lib/calcTotalPrice */ "./lib/calcTotalPrice.js");
 /* harmony import */ var _lib_formatMoney__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../lib/formatMoney */ "./lib/formatMoney.js");
-/* harmony import */ var _TakeMyMoney__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./TakeMyMoney */ "./components/TakeMyMoney.js");
-/* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-adopt */ "react-adopt");
-/* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(react_adopt__WEBPACK_IMPORTED_MODULE_12__);
-var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\Cart.js";
+/* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-adopt */ "react-adopt");
+/* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_adopt__WEBPACK_IMPORTED_MODULE_11__);
+var _jsxFileName = "D:\\React\\Advanced-React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\Cart.js";
 
 function _templateObject2() {
   var data = _taggedTemplateLiteral(["\n\tmutation {\n\t\ttoggleCart @client\n\t}\n"]);
@@ -155,8 +154,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
- // This name import is to deal with all the nested query/mutation and make them little easier to read
+ // import TakeMyMoney from "./TakeMyMoney";
+// This name import is to deal with all the nested query/mutation and make them little easier to read
 
  // This query is STRICTLY client side only
 // By doing this [cartOpen @client], React will know not to go to the backend to query this piece of data.
@@ -165,7 +164,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var LOCAL_STATE_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_6___default()(_templateObject());
 var TOGGLE_CART_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_6___default()(_templateObject2()); // Both solution work just fine. The one that's not rendering children will throw an error in the console but it shouldn't really affect anything
 
-var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_12__["adopt"])({
+var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_11__["adopt"])({
   user: function user(_ref) {
     var render = _ref.render;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -273,19 +272,13 @@ function Cart() {
           lineNumber: 71
         },
         __self: this
-      }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_lib_calcTotalPrice__WEBPACK_IMPORTED_MODULE_9__["default"])(me.cart))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TakeMyMoney__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_lib_calcTotalPrice__WEBPACK_IMPORTED_MODULE_9__["default"])(me.cart))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 75
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 73
-        },
-        __self: this
-      }, "Checkout"))));
+      }, "Checkout")));
     })
   );
 }
@@ -312,7 +305,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-transition-group */ "react-transition-group");
 /* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_transition_group__WEBPACK_IMPORTED_MODULE_3__);
-var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\CartCount.js";
+var _jsxFileName = "D:\\React\\Advanced-React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\CartCount.js";
 
 
 
@@ -392,7 +385,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "prop-types");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _RemoveFromCart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RemoveFromCart */ "./components/RemoveFromCart.js");
-var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\CartItem.js";
+var _jsxFileName = "D:\\React\\Advanced-React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\CartItem.js";
 
 
 
@@ -491,92 +484,6 @@ var CartItemsStyles = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.d
 
 /***/ }),
 
-/***/ "./components/ErrorMessage.js":
-/*!************************************!*\
-  !*** ./components/ErrorMessage.js ***!
-  \************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\ErrorMessage.js";
-
-
-
-var ErrorStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
-  displayName: "ErrorMessage__ErrorStyles",
-  componentId: "sc-11u5fgj-0"
-})(["padding:2rem;background:white;margin:2rem 0;border:1px solid rgba(0,0,0,0.05);border-left:5px solid red;p{margin:0;font-weight:100;}strong{margin-right:1rem;}"]);
-
-var DisplayError = function DisplayError(_ref) {
-  var error = _ref.error;
-  if (!error || !error.message) return null;
-
-  if (error.networkError && error.networkError.result && error.networkError.result.errors.length) {
-    return error.networkError.result.errors.map(function (error, i) {
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(ErrorStyles, {
-        key: i,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 25
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-        "data-test": "graphql-error",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 26
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("strong", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 27
-        },
-        __self: this
-      }, "Shoot!"), error.message.replace('GraphQL error: ', '')));
-    });
-  }
-
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(ErrorStyles, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 34
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-    "data-test": "graphql-error",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 35
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("strong", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 36
-    },
-    __self: this
-  }, "Shoot!"), error.message.replace('GraphQL error: ', '')));
-};
-
-DisplayError.defaultProps = {
-  error: {}
-};
-DisplayError.propTypes = {
-  error: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object
-};
-/* harmony default export */ __webpack_exports__["default"] = (DisplayError);
-
-/***/ }),
-
 /***/ "./components/Header.js":
 /*!******************************!*\
   !*** ./components/Header.js ***!
@@ -599,7 +506,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _Cart__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Cart */ "./components/Cart.js");
 /* harmony import */ var _Search__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Search */ "./components/Search.js");
-var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\Header.js";
+var _jsxFileName = "D:\\React\\Advanced-React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\Header.js";
 
 
 
@@ -713,7 +620,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\Meta.js";
+var _jsxFileName = "D:\\React\\Advanced-React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\Meta.js";
 
 
 
@@ -789,7 +696,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-apollo */ "react-apollo");
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _Cart__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Cart */ "./components/Cart.js");
-var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\Nav.js";
+var _jsxFileName = "D:\\React\\Advanced-React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\Nav.js";
 
 
 
@@ -842,43 +749,17 @@ function Nav() {
         lineNumber: 29
       },
       __self: this
-    }, "Sell")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/orders",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 31
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    }, "Sell")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 32
-      },
-      __self: this
-    }, "Orders")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/me",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 34
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 35
-      },
-      __self: this
-    }, "Account")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 37
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_6__["Mutation"], {
       mutation: _Cart__WEBPACK_IMPORTED_MODULE_7__["TOGGLE_CART_MUTATION"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 33
       },
       __self: this
     }, function (toggleCart) {
@@ -886,7 +767,7 @@ function Nav() {
         onClick: toggleCart,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 35
         },
         __self: this
       }, "My cart", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CartCount__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -895,7 +776,7 @@ function Nav() {
         }, 0),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 37
         },
         __self: this
       }));
@@ -903,13 +784,13 @@ function Nav() {
       href: "/signup",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 54
+        lineNumber: 49
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 55
+        lineNumber: 50
       },
       __self: this
     }, "Sign In"))));
@@ -936,7 +817,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Meta__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Meta */ "./components/Meta.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
-var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\Page.js";
+var _jsxFileName = "D:\\React\\Advanced-React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\Page.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1066,7 +947,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./User */ "./components/User.js");
-var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\RemoveFromCart.js";
+var _jsxFileName = "D:\\React\\Advanced-React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\RemoveFromCart.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1235,7 +1116,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _styles_DropDown__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/DropDown */ "./components/styles/DropDown.js");
 
-var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\Search.js";
+var _jsxFileName = "D:\\React\\Advanced-React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\Search.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1509,7 +1390,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./User */ "./components/User.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/router */ "next/router");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_4__);
-var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\Signout.js";
+var _jsxFileName = "D:\\React\\Advanced-React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\Signout.js";
 
 function _templateObject() {
   var data = _taggedTemplateLiteral(["\n\tmutation SIGNOUT_MUTATION {\n\t\tsignout {\n\t\t\tmessage\n\t\t}\n\t}\n"]);
@@ -1564,188 +1445,6 @@ function Signout(props) {
 
 /***/ }),
 
-/***/ "./components/TakeMyMoney.js":
-/*!***********************************!*\
-  !*** ./components/TakeMyMoney.js ***!
-  \***********************************/
-/*! exports provided: TakeMyMoney, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TakeMyMoney", function() { return TakeMyMoney; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_stripe_checkout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-stripe-checkout */ "react-stripe-checkout");
-/* harmony import */ var react_stripe_checkout__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_stripe_checkout__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-apollo */ "react-apollo");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! nprogress */ "nprogress");
-/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types */ "prop-types");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _lib_calcTotalPrice__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../lib/calcTotalPrice */ "./lib/calcTotalPrice.js");
-/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
-/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./User */ "./components/User.js");
-var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\TakeMyMoney.js";
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\tmutation createOrder($token: String!) {\n\t\tcreateOrder(token: $token) {\n\t\t\tid\n\t\t\tcharge\n\t\t\ttotal\n\t\t\titems {\n\t\t\t\tid\n\t\t\t\ttitle\n\t\t\t}\n\t\t}\n\t}\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
-
-
-
-
-
-
-
-
-
-
-function totalItem(cart) {
-  return cart.reduce(function (tally, cartItem) {
-    return tally + cartItem.quantity;
-  }, 0);
-}
-
-var CREATE_ORDER_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_6___default()(_templateObject());
-var TakeMyMoney =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(TakeMyMoney, _Component);
-
-  function TakeMyMoney() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, TakeMyMoney);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(TakeMyMoney)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onToken", function (res, createOrder) {
-      console.log("On Token Called!");
-      console.log(res.id); // manually call the mutation once we have the stripe token
-
-      createOrder({
-        variables: {
-          token: res.id
-        }
-      }).catch(function (err) {
-        alert(err.message);
-      });
-    });
-
-    return _this;
-  }
-
-  _createClass(TakeMyMoney, [{
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 46
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_9__["default"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 47
-        },
-        __self: this
-      }, function (_ref) {
-        var me = _ref.data.me;
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
-          mutation: CREATE_ORDER_MUTATION,
-          refetchQueries: [{
-            query: _User__WEBPACK_IMPORTED_MODULE_9__["CURRENT_USER_QUERY"]
-          }],
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 49
-          },
-          __self: this
-        }, function (createOrder) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_stripe_checkout__WEBPACK_IMPORTED_MODULE_1___default.a, {
-            amount: Object(_lib_calcTotalPrice__WEBPACK_IMPORTED_MODULE_7__["default"])(me.cart),
-            name: "Sick Fits",
-            description: "Order of ".concat(totalItem(me.cart), " items!"),
-            image: me.cart[0].item && me.cart[0].item.image,
-            stripeKey: "pk_test_51I5w86L6WESAJmN2ZO48bwEU8u16s8npi8Gii4KYBLPEQkpZdVlDjr6YHSJrEfTaQotgKs27tBxJQhWvRrixuLNp00q8G6TZ3S",
-            currency: "USD",
-            email: me.email,
-            token: function token(res) {
-              return _this2.onToken(res, createOrder);
-            },
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 54
-            },
-            __self: this
-          }, _this2.props.children);
-        });
-      }));
-    }
-  }]);
-
-  return TakeMyMoney;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-/* harmony default export */ __webpack_exports__["default"] = (TakeMyMoney);
-/*
-
-function TakeMyMoney(props) {
-	return (
-		<div>
-			<User>{({ data: { me } }) => <p>{props.children}</p>}</User>
-		</div>
-	);
-}
-
-*/
-
-/***/ }),
-
 /***/ "./components/User.js":
 /*!****************************!*\
   !*** ./components/User.js ***!
@@ -1764,7 +1463,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "prop-types");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
-var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\User.js";
+var _jsxFileName = "D:\\React\\Advanced-React\\Advanced-React-v2\\Sick-fits-react\\frontend\\components\\User.js";
 
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -2122,7 +1821,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _lib_withData__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../lib/withData */ "./lib/withData.js");
 
-var _jsxFileName = "D:\\React\\Advanced-React-v2\\Sick-fits-react\\frontend\\pages\\_app.js";
+var _jsxFileName = "D:\\React\\Advanced-React\\Advanced-React-v2\\Sick-fits-react\\frontend\\pages\\_app.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -2431,17 +2130,6 @@ module.exports = require("react-adopt");
 /***/ (function(module, exports) {
 
 module.exports = require("react-apollo");
-
-/***/ }),
-
-/***/ "react-stripe-checkout":
-/*!****************************************!*\
-  !*** external "react-stripe-checkout" ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("react-stripe-checkout");
 
 /***/ }),
 
